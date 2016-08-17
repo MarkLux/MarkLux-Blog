@@ -1,0 +1,22 @@
+<div id="blog_list">
+  文章内容列表
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  分页导航
+  <hr>
+</div>
