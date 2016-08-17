@@ -1,6 +1,4 @@
 <div id = "navigation">
-  <a href="#">博文</a>
-  -------------------
-  <a href="#">Pub</a>
+  <h2>最新文章</h2>
   <hr>
 </div>

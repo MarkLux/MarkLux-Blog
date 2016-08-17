@@ -32,8 +32,23 @@
       $this->load->view('templates/head_navigation.php');
       $this->load->view('templates/header.php');
       $this->load->view('index_view/navigation.php');
-      $this->load->view('templates/list.php');
+      $this->load->view('index_view/latest_blogs.php');
       $this->load->view('templates/html_footer.php');
+    }
+
+    public function quit()
+    {
+      session_start();
+      if(!empty($_SESSION['login_status']))
+      {
+        //简单粗暴
+        session_destroy();
+        header("Location: http://localhost/mark/index.php/index");
+      }
+      else
+      {
+        show_404();
+      }
     }
   }
 
