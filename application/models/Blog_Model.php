@@ -15,6 +15,15 @@
       $res = $query->result_array();
       return $res;
     }
+
+    //根据编号来获取一篇博文的信息
+
+    public function get_article($id)
+    {
+      $query = $this->db->get_where('blog',array('blog_id' => $id));
+      $res = $query->result_array();
+      return $res;
+    }
   }
 
  ?>
