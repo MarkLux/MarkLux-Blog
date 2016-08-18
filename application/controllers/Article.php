@@ -6,6 +6,8 @@
     {
       parent::__construct();
       $this->load->model('Blog_Model');
+      $this->load->library('hyperdown');
+      $this->load->helper('url');
     }
 
     //注意以后需要修改这里的url路由
@@ -27,7 +29,10 @@
       $article_content = $this->Blog_Model->get_article($id);
 
       //视图数据
+      $markdown = $article_content[0]['blog_md_code'];
+      $data['base_url'] = base_url();
       $data['article_content'] = $article_content[0];
+      $data['article_md'] = $this->hyperdown->makeHtml($markdown);
       $data['title'] = $article_content[0]['blog_title'];
 
       //加载视图

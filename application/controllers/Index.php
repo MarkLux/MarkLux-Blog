@@ -6,6 +6,7 @@
     {
       parent::__construct();
       $this->load->model('Blog_Model');
+      $this->load->helper('url');
     }
 
     public function index()
@@ -25,6 +26,7 @@
 
       //初始化视图的数据
 
+      $data['base_url'] = base_url();
       $data['title'] = "Mark Lux|Pub";
       $data['blog_data'] = $this->Blog_Model->get_latest_10();
 

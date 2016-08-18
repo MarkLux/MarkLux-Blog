@@ -1,6 +1,6 @@
 <div id="head_navigation">
   {Site_Favicon}&nbsp&nbsp
-  <a href="#">首页</a>&nbsp&nbsp
+  <a href="<?php echo $base_url;?>index.php/index">首页</a>&nbsp&nbsp
   <a href="#">博文</a>&nbsp&nbsp
   <a href="#">Pub</a>&nbsp&nbsp&nbsp&nbsp&nbsp
   <?php if(!empty($login_status)): ?>

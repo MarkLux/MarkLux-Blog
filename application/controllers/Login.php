@@ -5,7 +5,7 @@
     public function __construct()
     {
       parent::__construct();
-      $this->load->helper('form');
+      $this->load->helper(array('form','url'));
       $this->load->model('User_Model');
       $this->load->library('form_validation');
     }
@@ -18,8 +18,12 @@
 
       if($this->form_validation->run() == FALSE)
       {
+        //视图数据
+        $data['base_url'] = base_url();
+        $data['title'] = "Login";
+
         //重新加载登陆视图
-        $this->load->view('templates/html_header');
+        $this->load->view('templates/html_header',$data);
         $this->load->view('templates/head_navigation');
         $this->load->view('templates/header');
         $this->load->view('login_view/form');
@@ -49,7 +53,7 @@
         return FALSE;
       }
     }
-    
+
   }
 
 ?>
