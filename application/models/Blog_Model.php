@@ -24,6 +24,38 @@
       $res = $query->result_array();
       return $res;
     }
+
+    //返回指定分类的文章数量
+    public function get_total_num($category)
+    {
+      if($category == "all")
+      {
+        $sql = "SELECT COUNT(*) FROM blog";
+      }
+      else
+      {
+        $sql = "SELECT COUNT(*) FROM blog WHERE blog_category = \"".$category."\"";
+      }
+
+      $query = $this->db->query($sql);
+
+      $arr = $query->row_array();
+
+      return $arr['COUNT(*)'];
+    }
+
+    //获取分页显示的数据
+    public function get_splitpage($splitPage)
+    {
+      if($splitPage['category'] == "all"){
+          $query = $this->db->get('blog',$splitPage['page_size'],$splitPage['current_page']);
+      }
+      else {
+        $query = $this->db->get_where('blog',array('blog_category' => $splitPage['category'] ),$splitPage['page_size'],$splitPage['current_page']);
+      }
+
+      return $query->result_array();
+    }
   }
 
  ?>
