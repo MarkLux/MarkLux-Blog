@@ -27,7 +27,7 @@
       //初始化视图的数据
 
       $data['base_url'] = base_url();
-      $data['title'] = "Mark Lux|Pub";
+      $data['title'] = "Mark Lux";
       $data['blog_data'] = $this->Blog_Model->get_latest_10();
 
       $this->load->view('templates/html_header.php',$data);

@@ -1,4 +1,4 @@
-<header>
-  <h2>Header</h2>
-  <hr>
-</header>
+<!-- header -->
+<div class="header-bg">
+  <!-- 这里可以放内容 背景是那张图-->
+</div>
