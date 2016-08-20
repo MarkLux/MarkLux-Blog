@@ -39,7 +39,7 @@
 
       $this->load->view('templates/html_header.php',$data);
       $this->load->view('templates/head_navigation.php');
-      $this->load->view('templates/header.php');
+      //$this->load->view('templates/header.php');
       $this->load->view('article_view/main.php');
       $this->load->view('templates/html_footer.php');
     }

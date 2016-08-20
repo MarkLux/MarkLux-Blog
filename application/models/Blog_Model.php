@@ -56,6 +56,22 @@
 
       return $query->result_array();
     }
+
+    //获取所有分类
+    public function get_category()
+    {
+      $query = $this->db->get('category');
+
+      return $query->result_array();
+    }
+
+    //插入一条新条目
+    public function insert_new($row)
+    {
+      //$query = $this->db->query("INSERT INTO blog(blog_title,blog_category,blog_md_code) values($row['blog_title'],$row['blog_category'],$row['blog_md_code'])");
+      $query = $this->db->insert('blog',$row);
+      return $query;
+    }
   }
 
  ?>
