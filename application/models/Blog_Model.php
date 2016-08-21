@@ -57,19 +57,26 @@
       return $query->result_array();
     }
 
-    //获取所有分类
-    public function get_category()
-    {
-      $query = $this->db->get('category');
-
-      return $query->result_array();
-    }
-
     //插入一条新条目
-    public function insert_new($row)
+    public function insert_new($data)
     {
       //$query = $this->db->query("INSERT INTO blog(blog_title,blog_category,blog_md_code) values($row['blog_title'],$row['blog_category'],$row['blog_md_code'])");
-      $query = $this->db->insert('blog',$row);
+      $query = $this->db->insert('blog',$data);
+      return $query;
+    }
+
+    //更新一个条目的内容
+    public function update($data)
+    {
+      //使用查询构造器类的话需要在数组中带入主键
+      $query = $this->db->replace('blog',$data);
+      return $query;
+    }
+
+    //根据id删除一个条目
+    public function delete($id)
+    {
+      $query = $this->db->delete('blog',array('blog_id' => $id));
       return $query;
     }
   }

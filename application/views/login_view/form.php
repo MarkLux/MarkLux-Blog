@@ -1,3 +1,6 @@
+<div class="container">
+  <h1>登陆</h1>
+
 <div id="login_form">
   <?php echo validation_errors(); ?>
 
@@ -13,4 +16,4 @@
   </form>
 
 </div>
-<hr>
+</div>

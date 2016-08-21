@@ -25,7 +25,7 @@
         //重新加载登陆视图
         $this->load->view('templates/html_header',$data);
         $this->load->view('templates/head_navigation');
-        $this->load->view('templates/header');
+        //$this->load->view('templates/header');
         $this->load->view('login_view/form');
         $this->load->view('templates/html_footer');
       }
