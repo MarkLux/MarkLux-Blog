@@ -79,6 +79,14 @@
       $query = $this->db->delete('blog',array('blog_id' => $id));
       return $query;
     }
+
+    //获取分类目录
+    public function get_category()
+    {
+      $query = $this->db->get('category');
+
+      return $query->result_array();
+    }
   }
 
  ?>

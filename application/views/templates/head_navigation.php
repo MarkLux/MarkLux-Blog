@@ -15,13 +15,23 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active">
+        <li>
           <a href="<?php echo $base_url;?>index.php/index">首页
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li>
-          <a href="<?php echo $base_url;?>index.php/blog/view/all">博文</a>
+        <li class = "dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-labelledby="dropdownMenu4">
+            博文
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="<?php echo $base_url;?>index.php/blog/view/all">全部</a>
+            <?php foreach($category_list as $row):?>
+              <a href="<?php echo $base_url;?>index.php/blog/view/<?php echo $row['category_name'];?>"><?php echo $row['category_name'];?></a>
+            <?php endforeach;?>
+          </ul>
         </li>
         <li>
           <a href="#">Pub</a>

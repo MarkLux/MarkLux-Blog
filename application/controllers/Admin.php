@@ -11,7 +11,7 @@
       parent::__construct();
 
       $this->load->helper(array('form','url'));
-      $this->load->model(array('User_Model','Blog_Model','Category_Model'));
+      $this->load->model(array('User_Model','Blog_Model'));
       $this->load->library(array('form_validation','pagination'));
 
       $this->data['login_status'] = 1;
@@ -19,6 +19,7 @@
       $this->data['is_admin'] = $_SESSION['is_admin'];
       $this->data['title'] = "Mark Lux|Admin";
       $this->data['base_url'] = base_url();
+      $this->data['category_list'] = $this->Blog_Model->get_category();
     }
 
     public function index()
@@ -40,7 +41,7 @@
 
       if($this->form_validation->run() == FALSE)
       {
-        $this->data['category'] = $this->Category_Model->get_category();
+        $this->data['category'] = $this->Blog_Model->get_category();
         $this->load->view('templates/html_header.php',$this->data);
         $this->load->view('templates/head_navigation.php');
         $this->load->view('admin_view/add_new.php');
@@ -123,7 +124,7 @@
 
       if($this->form_validation->run() == FALSE)
       {
-        $this->data['category'] = $this->Category_Model->get_category();
+        $this->data['category'] = $this->Blog_Model->get_category();
         $this->load->view('templates/html_header.php',$this->data);
         $this->load->view('templates/head_navigation.php');
         $this->load->view('admin_view/edit.php');

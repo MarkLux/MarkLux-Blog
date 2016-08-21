@@ -15,6 +15,20 @@
 
       return $query->result_array();
     }
+
+    //修改
+    public function update($data)
+    {
+      $query = $this->db->replace('category',$data);
+      return $query;
+    }
+
+    //删除
+    public function delete($id)
+    {
+      $query = $this->db->delete('category',array('category_id' => $id));
+      return $query;
+    }
   }
 
  ?>

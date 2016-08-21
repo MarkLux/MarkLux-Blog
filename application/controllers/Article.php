@@ -34,6 +34,7 @@
       $data['article_content'] = $article_content[0];
       $data['article_md'] = $this->hyperdown->makeHtml($markdown);
       $data['title'] = $article_content[0]['blog_title'];
+      $data['category_list'] = $this->Blog_Model->get_category();
 
       //加载视图
 

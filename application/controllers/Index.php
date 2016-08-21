@@ -27,6 +27,7 @@
       //初始化视图的数据
 
       $data['base_url'] = base_url();
+      $data['category_list'] = $this->Blog_Model->get_category();
       $data['title'] = "Mark Lux";
       $data['blog_data'] = $this->Blog_Model->get_latest_10();
 

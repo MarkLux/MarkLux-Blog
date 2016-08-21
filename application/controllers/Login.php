@@ -21,6 +21,7 @@
         //视图数据
         $data['base_url'] = base_url();
         $data['title'] = "Login";
+        $data['category_list'] = $this->Blog_Model->get_category();
 
         //重新加载登陆视图
         $this->load->view('templates/html_header',$data);
