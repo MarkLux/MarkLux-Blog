@@ -17,7 +17,7 @@
       <option><?php echo $row['category_name'];?></option>
     <?php endforeach; ?>
   </select>
-  <input type="hidden" name="blog_create_time" value="<?php echo date("Y-m-d h:i");?>">
+  <input type="hidden" name="blog_create_time" value="<?php echo date("Y-m-d H:i");?>">
   <br>
   <h3>文本内容</h3>
   <textarea rows="5" cols="80" name="blog_md_code" id="text_editor" oninput="update()">
