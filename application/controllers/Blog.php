@@ -53,6 +53,7 @@
       $data['title'] = "Blog|".$category;
       $data['article_data'] = $this->Blog_Model->get_splitpage($splitPage);
       $data['base_url'] = base_url();
+      $data['category_list'] = $this->Blog_Model->get_category();
 
       $this->load->view('templates/html_header.php',$data);
       $this->load->view('templates/head_navigation.php');

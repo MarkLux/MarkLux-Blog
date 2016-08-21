@@ -65,9 +65,6 @@
         <li>
           <a href="<?php echo $base_url;?>/index.php/login">登陆</a>
         </li>
-        <li>
-          <a href="#">注册</a>
-        </li>
       </ul>
     <?php endif;?>
 

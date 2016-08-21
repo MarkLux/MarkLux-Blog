@@ -6,7 +6,7 @@
     {
       parent::__construct();
       $this->load->helper(array('form','url'));
-      $this->load->model('User_Model');
+      $this->load->model(array('User_Model','Blog_Model'));
       $this->load->library('form_validation');
     }
 

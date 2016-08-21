@@ -2,16 +2,20 @@
   <h1>登陆</h1>
 
 <div id="login_form">
-  <?php echo validation_errors(); ?>
+<?php echo validation_errors(); ?>
 
   <?php echo form_open('login') ?>
+<div class="form_group">
+  <label>用户名</label>
+  <input class="form-control" type="text" name="user_name" size="20" value="<?php echo set_value('admin_name'); ?>"/>
+</div>
 
-  <h4>用户名</h4>
-  <input type="text" name="user_name" size="20" value="<?php echo set_value('admin_name'); ?>"/>
-  <h4>密码</h4>
-  <input type="password" name="user_pwd" size="20" />
-  <br><br>
-  <input type="submit"  value="登陆" />
+<div class="form_group">
+  <label>密码</label>
+  <input class="form-control" type="password" name="user_pwd" size="20" />
+</div>
+<br>
+<button type="submit" class="btn btn-default">登陆</button>
 
   </form>
 
