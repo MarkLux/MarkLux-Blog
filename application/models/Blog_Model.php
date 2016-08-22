@@ -11,7 +11,7 @@
     //获取最新的10条博文（放置于首页）
     public function get_latest_10()
     {
-      $query = $this->db->get('blog',10,0);
+      $query = $this->db->query("select * from blog order by blog_create_time desc limit 0,10");
       $res = $query->result_array();
       return $res;
     }
@@ -34,7 +34,7 @@
       }
       else
       {
-        $sql = "SELECT COUNT(*) FROM blog WHERE blog_category = \"".$category."\"";
+        $sql = "SELECT COUNT(*) FROM blog WHERE blog_category =".$this->db->escape($category);
       }
 
       $query = $this->db->query($sql);
@@ -48,11 +48,16 @@
     public function get_splitpage($splitPage)
     {
       if($splitPage['category'] == "all"){
-          $query = $this->db->get('blog',$splitPage['page_size'],$splitPage['current_page']);
+        $sql = "select * from blog order by blog_create_time desc limit "
+        .$this->db->escape($splitPage['start_num']).",".$this->db->escape($splitPage['page_size']);
       }
       else {
-        $query = $this->db->get_where('blog',array('blog_category' => $splitPage['category'] ),$splitPage['page_size'],$splitPage['current_page']);
+        $sql = "select * from blog where blog_category = "
+        .$this->db->escape($splitPage['category'])." order by blog_create_time desc limit "
+        .$this->db->escape($splitPage['start_num']).",".$this->db->escape($splitPage['page_size']);
       }
+
+      $query = $this->db->query($sql);
 
       return $query->result_array();
     }

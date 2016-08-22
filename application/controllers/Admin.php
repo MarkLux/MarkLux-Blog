@@ -78,27 +78,41 @@
     }
 
     //删除和修改的列表
-    public function article_manage($category,$cur=0)
+    public function article_manage($category,$cur=1)
     {
       //解码
       $category = urldecode($category);
 
       //封装分页信息数组
 
-      $splitPage['current_page'] = $cur;
       $splitPage['category'] = $category;
       $splitPage['page_size'] = 20;
       $splitPage['total_number'] = $this->Blog_Model->get_total_num($category);
+      $splitPage['start_num'] = ($cur-1)*$splitPage['page_size'];
 
       //初始化分页类
 
-      $config['base_url'] = base_url()."index.php/blog/view/".$category;
+      $config['base_url'] = base_url()."index.php/admin/article_manage/".$category;
       $config['total_rows'] = $splitPage['total_number'];
       $config['per_page'] = $splitPage['page_size'];
-      $config['num_links'] = 5;
+      $config['num_links'] = 2;
       $config['use_page_numbers'] = TRUE;
       $config['first_link'] = '首页';
       $config['last_link'] = '末页';
+      //$config['full_tag_open'] = '<li>';
+      //$config['full_tag_close'] = '</li>';
+      $config['first_tag_open'] = '<li>';
+      $config['first_tag_close'] = '</li>';
+      $config['last_tag_open'] = '<li>';
+      $config['last_tag_close'] = '</li>';
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+      $config['prev_tag_open'] = '<li>';
+      $config['prev_tag_close'] = '</li>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+      $config['cur_tag_open'] = '<li class="active"><a>';
+      $config['cur_tag_close'] = '</a></li>';
 
       $this->pagination->initialize($config);
 

@@ -20,6 +20,6 @@
 
 <?php endforeach; ?>
 
-<?php echo $links; ?>
+<nav><ul class= "pagination"><?php echo $links; ?></ul></nav>
 </div>
 <hr>

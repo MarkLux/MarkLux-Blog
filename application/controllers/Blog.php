@@ -10,7 +10,7 @@
       $this->load->library('pagination');
     }
 
-    public function view($category,$cur = 0)
+    public function view($category,$cur = 1)
     {
       //检测用户的登陆状态
       session_start();
@@ -30,17 +30,17 @@
 
       //封装分页信息数组
 
-      $splitPage['current_page'] = $cur;
       $splitPage['category'] = $category;
       $splitPage['page_size'] = 20;
       $splitPage['total_number'] = $this->Blog_Model->get_total_num($category);
+      $splitPage['start_num'] = ($cur-1)*$splitPage['page_size'];
 
       //初始化分页类
 
       $config['base_url'] = base_url()."index.php/blog/view/".$category;
       $config['total_rows'] = $splitPage['total_number'];
       $config['per_page'] = $splitPage['page_size'];
-      $config['num_links'] = 5;
+      $config['num_links'] = 2;
       $config['use_page_numbers'] = TRUE;
       $config['first_link'] = '首页';
       $config['last_link'] = '末页';
