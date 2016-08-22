@@ -104,6 +104,7 @@
 
       $this->data['links'] = $this->pagination->create_links();
       $this->data['article_data'] = $this->Blog_Model->get_splitpage($splitPage);
+      $this->data['category_now'] = $category;
 
       $this->load->view('templates/html_header.php',$this->data);
       $this->load->view('templates/head_navigation.php');

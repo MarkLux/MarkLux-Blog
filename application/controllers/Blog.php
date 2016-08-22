@@ -44,6 +44,20 @@
       $config['use_page_numbers'] = TRUE;
       $config['first_link'] = '首页';
       $config['last_link'] = '末页';
+      //$config['full_tag_open'] = '<li>';
+      //$config['full_tag_close'] = '</li>';
+      $config['first_tag_open'] = '<li>';
+      $config['first_tag_close'] = '</li>';
+      $config['last_tag_open'] = '<li>';
+      $config['last_tag_close'] = '</li>';
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+      $config['prev_tag_open'] = '<li>';
+      $config['prev_tag_close'] = '</li>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+      $config['cur_tag_open'] = '<li class="active"><a>';
+      $config['cur_tag_close'] = '</a></li>';
 
       $this->pagination->initialize($config);
 
@@ -54,6 +68,7 @@
       $data['article_data'] = $this->Blog_Model->get_splitpage($splitPage);
       $data['base_url'] = base_url();
       $data['category_list'] = $this->Blog_Model->get_category();
+      $data['category_now'] = $category;
 
       $this->load->view('templates/html_header.php',$data);
       $this->load->view('templates/head_navigation.php');

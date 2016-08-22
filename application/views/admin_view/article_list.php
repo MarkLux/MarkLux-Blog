@@ -1,6 +1,10 @@
+<div class="container">
+  <div class= "page-header">
+    <h2><?php echo $category_now; ?></h2>
+  </div>
 <?php foreach ($article_data as $row): ?>
 
-  <div class="jumbotron">
+  <div class="thumbnail">
     <div class="container">
     <h2><?php echo $row['blog_title']; ?></h2>
     <p>
@@ -17,5 +21,5 @@
 <?php endforeach; ?>
 
 <?php echo $links; ?>
-
+</div>
 <hr>
